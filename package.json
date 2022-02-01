@@ -1,0 +1,45 @@
+{
+  "name": "master-gerenciador-desktop",
+  "version": "0.0.1",
+  "description": "Master Gerenciador para Desktop",
+  "main": "main.js",
+  "author": "Rafael Fernandes",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "publish": "electron-builder -p always"
+  },
+  "devDependencies": {
+    "electron": "^17.0.0",
+    "electron-builder": "^22.11.7",
+    "electron-notarize": "^1.1.1"
+  },
+  "dependencies": {
+    "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.9"
+  },
+  "build": {
+    "publish": [{
+      "provider": "github",
+      "owner": "faelfernandes",
+      "repo": "gerenciador-master-desktop"
+    }],
+    "appId": "com.github.iffy.electronupdaterexample",
+    "afterSign": "./build/notarize.js",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "linux": {
+      "category": "your.app.category.type",
+      "target": "AppImage"
+    }
+  },
+  "keywords": [],
+  "license": "ISC"
+}
